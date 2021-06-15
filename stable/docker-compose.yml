@@ -2,7 +2,7 @@ version: '3'
 
 services:
   freeradius:
-    image: goofball222/freeradius
+    image: indiana/freeradius
     container_name: freeradius
     network_mode: bridge
     restart: unless-stopped
