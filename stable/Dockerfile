@@ -29,8 +29,6 @@ RUN \
     && addgroup -g $PGID radius \
     && adduser -D -G radius -u $PUID radius \
     && chown -R root:radius /etc/raddb/*.conf /etc/raddb/mods-config/files \
-    && mkdir /tmp/radiusd/ \
-    && chown radius:radius /tmp/radiusd \
     && apk add -q --no-cache \
         bash freeradius freeradius-radclient tzdata freeradius-eap openssl \
 #   Alpine FreeRadius unused mods Kitchen Sink list, for future reference 2018-08-19.
@@ -38,7 +36,9 @@ RUN \
 #       freeradius-lib freeradius-mssql freeradius-mysql freeradius-pam freeradius-perl \
 #       freeradius-postgresql freeradius-python freeradius-redis freeradius-rest freeradius-sql \
 #       freeradius-sqlite freeradius-unixodbc \
-    && rm -rf /tmp/* /var/cache/apk/*
+    && rm -rf /tmp/* /var/cache/apk/* \
+    && mkdir /tmp/radiusd/ \
+    && chown radius:radius /tmp/radiusd
 
 EXPOSE 1812/udp 1813/udp
 
