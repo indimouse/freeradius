@@ -3,7 +3,7 @@
 
 
 
-NS ?= goofball222
+NS ?= indiana
 
 IMAGE_NAME ?= freeradius
 CONTAINER_NAME ?= freeradius
